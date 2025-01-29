@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+    href="../../resources/app/css/styles.css" th:href="@{/resources/app/css/styles.css}">
+<title>掲示板 (過去の投稿)</title>
+</head>
+<body>
+    <header>
+        <div class="title"><span th:text="${bbs.title}"></span> (過去の投稿)</div>
+        <div class="administrator" th:text="${bbs.administrator}"></div>
+    </header>
+    <main>
+        <article>
+			<div class="pageNation">
+				<div class="pageBack">
+			    	<a th:href="@{/post_history?page={pageNumB}(pageNumB=${pageBack})}" th:if="${pageBackBlank == false}">前へ</a>
+				</div>
+				<div class="currentPage">
+					<a th:href="@{/post_history?page=0}"><<</a>&nbsp;
+					<span th:text="${currentPage}"></span>&nbsp;
+					<a th:href="@{/post_history?page={pageNumL}(pageNumL=${lastPage})}">>></a>
+				</div>
+				<div class="pageNext">
+					<a th:href="@{/post_history?page={pageNumN}(pageNumN=${pageNext})}" th:if="${pageNextBlank == false}">次へ</a>
+				</div>
+			</div>
+            <div class="posts" th:each="post: ${posts}">
+                <div class="postsHeader">
+                    <span class="postsTitle">
+						<span th:text="${post.name}"></span>
+						　　
+						<span th:text="${#dates.format(new java.util.Date(post.createDate), 'yyyy/MM/dd HH:mm')}"></span>
+					</span>
+                </div>
+                <div class="postsMain">
+                    <span class="postsMessage" th:text="${post.message}"></span>
+                </div>
+            </div>
+        </article>
+    </main>
+	<footer>
+		<div class="postHistory"><a th:href="@{/}">最新の投稿へ</a></div>
+	</footer>
+</body>
+</html>

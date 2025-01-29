@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+    href="../../resources/app/css/styles.css" th:href="@{/resources/app/css/styles.css}">
+<title>掲示板</title>
+</head>
+<body>
+    <header>
+        <div class="title">掲示板名</div>
+        <div class="administrator">管理人名</div>
+    </header>
+    <main>
+        <section>
+            <form>
+                <table class="inputForm">
+                    <tbody>
+                        <tr>
+                            <td class="tableTitle">名前</td>
+                            <td><input type="text" class="nameForm"></td>
+                        </tr>
+                        <tr>
+                            <td class="tableTitle">メッセージ</td>
+                            <td><textarea class="messageForm"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button type="submit" class="submitButton">投稿する</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <hr>
+        </section>
+        <article>
+            <div class="pageNation">
+                <p>前へ << 1 2 3 4 5 >> 次へ</p>
+            </div>
+            <div class="posts">
+                <div class="postsHeader">
+                    <span class="postsTitle">投稿者名　　yyyy/MM/dd HH:mm</span>
+                </div>
+                <div class="postsMain">
+                    <span class="postsMessage">投稿メッセージ</span>
+                </div>
+            </div>
+        </article>
+    </main>
+	<footer>
+		<div class="pastData">もっと見る</div>
+	</footer>
+</body>
+</html>

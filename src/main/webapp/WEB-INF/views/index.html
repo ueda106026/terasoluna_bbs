@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+    href="../../resources/app/css/styles.css" th:href="@{/resources/app/css/styles.css}">
+<title>掲示板</title>
+</head>
+<body>
+    <header>
+        <div class="title" th:text="${bbs.title}"></div>
+        <div class="administrator" th:text="${bbs.administrator}"></div>
+    </header>
+    <main>
+        <section>
+            <form method="post" th:action="@{/registration}" th:object="${postsForm}" name="inputForm">
+				<div class="errorMessage" id="errorMassageToName"></div>
+				<div class="errorMessage" id="errorMassageToMessage"></div>
+                <table class="inputForm">
+                    <tbody>
+                        <tr>
+                            <td class="tableTitle">名前</td>
+                            <td><input type="text" class="nameForm" name="name" id="inputName" placeholder="投稿者名を入力してください"></td>
+                        </tr>
+                        <tr>
+                            <td class="tableTitle">メッセージ</td>
+                            <td><textarea class="messageForm" name="message" id="inputMessage"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button id="submitButton" class="submitButton">投稿する</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <hr>
+        </section>
+        <article>
+            <div class="pageNation">
+				<div class="pageBack">
+                	<a th:href="@{/?page={pageNumB}(pageNumB=${pageBack})}" th:if="${pageBackBlank == false}">前へ</a>
+				</div>
+				<div class="currentPage">
+					<a th:href="@{/?page=0}"><<</a>&nbsp;
+					<span th:text="${currentPage}"></span>&nbsp;
+					<a th:href="@{/?page={pageNumL}(pageNumL=${lastPage})}">>></a>
+				</div>
+				<div class="pageNext">
+					<a th:href="@{/?page={pageNumN}(pageNumN=${pageNext})}" th:if="${pageNextBlank == false}">次へ</a>
+				</div>
+			</div>
+            <div class="posts" th:each="post: ${posts}">
+                <div class="postsHeader">
+                    <span class="postsTitle">
+						<span th:text="${post.name}"></span>
+						　　
+						<span th:text="${#dates.format(new java.util.Date(post.createDate), 'yyyy/MM/dd HH:mm')}"></span>
+					</span>
+                </div>
+                <div class="postsMain">
+                    <span class="postsMessage" th:text="${post.message}"></span>
+                </div>
+            </div>
+        </article>
+    </main>
+	<footer>
+		<div class="postHistory"><a th:href="@{/post_history}" th:if="${postHistoryBlank == false}">もっと見る</a></div>
+	</footer>
+	<script th:src="@{/resources/app/js/script.js}"></script>
+</body>
+</html>

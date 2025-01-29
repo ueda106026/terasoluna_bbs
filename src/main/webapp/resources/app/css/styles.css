@@ -1,0 +1,114 @@
+body {
+	height: auto;
+	width: 400px;
+	margin: 0 auto;
+    font-size: 12px;
+    border: 1px solid #000080;
+}
+
+hr {
+    border: 1px solid #000080;
+}
+
+header {
+	background-color: #4682b4;
+	color: #ffffff;
+}
+
+.title {
+	font-size: 20px;
+	text-align: center;
+    padding-top: 10px;
+}
+
+.administrator {
+	font-size: 15px;
+	text-align: right;
+    padding-right: 10px;
+}
+
+.inputForm {
+	margin: 0 auto;
+	padding: 10px 0px;
+}
+
+.tableTitle {
+	text-align: right;
+	vertical-align: top;
+}
+
+.nameForm {
+	width: 220px;
+}
+
+.messageForm {
+	resize: none;
+	width: 220px;
+	height: 60px;
+}
+
+.submitButton {
+    width: 150px;
+    height: 30px;
+	background-color: #4682b4;
+	color: #ffffff;
+    font-size: 15px;
+	border-radius: 10px;
+    border: 1px solid #000080;
+}
+
+.pageNation {
+    display: flex;
+    justify-content: center;
+}
+
+.pageNation .currentPage {
+    flex-grow: 0;
+    flex-basis: auto;
+    text-align: center;
+	width: 80px;
+}
+
+.pageNation .pageBack, .pageNation .pageNext {
+    flex-basis: 30px;
+}
+
+.pageNation a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.posts {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid #000080;
+}
+
+.postsHeader {
+    background-color: #4682b4;
+    color: #ffffff;
+}
+
+.postsTitle {
+    display: block;
+    padding: 10px 0px 10px 15px;
+}
+
+.postsMessage {
+    display: block;
+    margin: 10px 15px;
+}
+
+.postHistory {
+	text-align: right;
+	padding-right: 15px;
+	padding-bottom: 10px;
+}
+
+.errorMessage {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 15px;
+	color: red;
+}

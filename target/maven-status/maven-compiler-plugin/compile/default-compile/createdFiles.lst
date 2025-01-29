@@ -1,0 +1,12 @@
+jp\co\brightstar\config\app\ApplicationContextConfig.class
+jp\co\brightstar\config\web\SpringMvcConfig.class
+jp\co\brightstar\config\app\BbsCodeListConfig.class
+jp\co\brightstar\config\web\SpringSecurityConfig.class
+jp\co\brightstar\app\controller\IndexController.class
+jp\co\brightstar\config\app\BbsInfraConfig.class
+jp\co\brightstar\domain\repository\PostsRepository.class
+jp\co\brightstar\config\app\BbsEnvConfig.class
+jp\co\brightstar\app\welcome\HelloController.class
+jp\co\brightstar\config\app\BbsDomainConfig.class
+jp\co\brightstar\domain\entity\Posts.class
+jp\co\brightstar\app\common\error\CommonErrorController.class
