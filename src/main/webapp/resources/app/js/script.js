@@ -109,17 +109,16 @@ $('#administratorSubmit').on('click', function(event) {
 	  dataType: "json",
 	  contentType: "application/json",  // JSONで送る場合に必須
 	  data: JSON.stringify({ 
-	    "administrator": "test"
+	    "administrator": administratorForm
 	  }),
 	  headers: {
 	    'X-CSRF-Token' : $('#CSRFToken').val()
 	  },
 	})
 	.done(function () {
-	  alert("OK");
+		window.location.reload();
 	})
-	.fail(function (a, b, c) {
-		console.log("Error:", a.status, b, c);
-	  alert("NG");
+	.fail(function () {
+	  window.location.href('../../WEB-INF/views/error_exception.html')
 	});
 });
