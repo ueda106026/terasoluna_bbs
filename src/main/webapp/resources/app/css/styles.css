@@ -25,6 +25,42 @@ header {
 	font-size: 15px;
 	text-align: right;
     padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+#formOpen {
+    color: #ffffff;
+}
+
+.administratorInput {
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.administratorForm {
+    width: 150px;
+}
+
+.administratorButton {
+    width: 50px;
+    height: 25px;
+	background-color: #000080;
+	color: #ffffff;
+    font-size: 12px;
+	border-radius: 10px;
+    border: 1px solid #000080;
+}
+
+.UCButton {
+    margin-top: 5px;
+}
+
+.administratorMessage {
+    text-align: right;
+    color: red;
+    font-size: 15px;
 }
 
 .inputForm {

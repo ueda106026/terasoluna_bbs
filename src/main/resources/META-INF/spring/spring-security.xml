@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	<sec:http use-expressions="true">  <!-- (1) -->
+		<!-- omitted -->
+		<sec:custom-filter ref="csrfFilter"
+			before="LOGOUT_FILTER" />  <!-- (1) -->
+
+		<sec:session-management
+			session-authentication-strategy-ref="sessionAuthenticationStrategy" />  <!-- (2) -->
+		<!-- omitted -->
+	</sec:http>
+
+	<bean id="csrfFilter"
+		class="org.springframework.security.web.csrf.CsrfFilter">  <!-- (3) -->
+		<constructor-arg index="0" ref="csrfTokenRepository" />  <!-- (4) -->
+		<property name="accessDeniedHandler">
+			<bean
+				class="org.springframework.security.web.access.AccessDeniedHandlerImpl">  <!-- (5) -->
+				<property name="errorPage"
+					value="/WEB-INF/views/common/error/csrfTokenError.jsp" />  <!-- (6) -->
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="csrfTokenRepository"
+		class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository" />  <!-- (7) -->
+
+	<bean id="sessionAuthenticationStrategy"
+		class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy"> <!-- (8) -->
+		<constructor-arg index="0">
+			<list>
+				<!-- omitted -->
+				<bean
+					class="org.springframework.security.web.csrf.CsrfAuthenticationStrategy">  <!-- (9) -->
+					<constructor-arg index="0"
+						ref="csrfTokenRepository" />  <!-- (10) -->
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>

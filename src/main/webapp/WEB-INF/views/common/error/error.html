@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>エラー画面</title>
+<style>
+	body {
+		height: auto;
+		width: 400px;
+		margin: 0 auto;
+	    font-size: 12px;
+	    border: 1px solid #000080;
+	}
+	header {
+		background-color: #4682b4;
+		color: #ffffff;
+	}
+
+	.title {
+		font-size: 20px;
+		text-align: center;
+	    padding-top: 10px;
+	}
+	.errorMessage {
+		padding-top: 10px;
+		text-align: center;
+		font-size: 15px;
+		color: red;
+	}
+</style>
+</head>
+<body>
+    <header>
+        <div class="title">サーバーエラー</div>
+    </header>
+    <main>
+		<div class="errorMessage">不正なリクエストです。</div>
+    </main>
+	<footer>
+	</footer>
+</body>
+</html>

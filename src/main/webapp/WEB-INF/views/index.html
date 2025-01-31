@@ -4,12 +4,27 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
     href="../../resources/app/css/styles.css" th:href="@{/resources/app/css/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>掲示板</title>
 </head>
 <body>
     <header>
         <div class="title" th:text="${bbs.title}"></div>
-        <div class="administrator" th:text="${bbs.administrator}"></div>
+		
+		<div class="administratorChange">
+		    <div class="administrator"><a href="#" id="formOpen" th:text="${bbs.administrator}"></a></div>
+		    <div class="administratorInput">
+		        <form>
+		            <div class="administratorMessage" id="errorMassageToAdministrator"></div>
+		            <div><input type="text" class="administratorForm" id="administratorForm" name="administrator" th:value="${bbs.administrator}"></div>
+		            <div class="UCButton">
+						<button type="submit" class="administratorButton" id="administratorSubmit">Update</button>
+			            <button type="button" class="administratorButton" id="formHide">Cancel</button>
+					</div>
+		        </form>
+		    </div>
+		</div>
+		
     </header>
     <main>
         <section>
@@ -29,6 +44,7 @@
                         <tr>
                             <td></td>
                             <td>
+								<input type="hidden" id="CSRFToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> <!-- CSRFトークン -->
                                 <button id="submitButton" class="submitButton">投稿する</button>
                             </td>
                         </tr>

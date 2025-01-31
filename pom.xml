@@ -285,6 +285,13 @@
 		    <scope>test</scope> <!-- (2) -->
 		</dependency>
 		<!-- Validation -->
+		
+		<!-- Spring Security -->
+		<dependency>
+		    <groupId>org.terasoluna.gfw</groupId>
+		    <artifactId>terasoluna-gfw-security-web</artifactId>
+		</dependency>
+		<!-- Spring Security -->
 
     </dependencies>
 
